@@ -31,6 +31,7 @@ helm install <release-name> ./helm-microservice-chart -f values.yaml
 helm install cu-ms-payments ./helm-microservice-chart \
   --set name=cu-ms-payments \
   --set namespace=edisonpaul4-dev \
+  --set registry=edisonpaul4 \
   --set imageTag=v1.0.0
 ```
 
@@ -38,12 +39,13 @@ helm install cu-ms-payments ./helm-microservice-chart \
 
 ### Parámetros principales
 
-| Parámetro   | Descripción              | Valor por defecto |
-| ----------- | ------------------------ | ----------------- |
-| `name`      | Nombre del microservicio | `""` (requerido)  |
-| `namespace` | Namespace de Kubernetes  | `""` (requerido)  |
-| `imageTag`  | Tag de la imagen Docker  | `""` (requerido)  |
-| `port`      | Puerto del contenedor    | `3000`            |
+| Parámetro   | Descripción                                            | Valor por defecto |
+| ----------- | ------------------------------------------------------ | ----------------- |
+| `name`      | Nombre del microservicio                               | `""` (requerido)  |
+| `namespace` | Namespace de Kubernetes                                | `""` (requerido)  |
+| `registry`  | Registry de Docker (ej: edisonpaul4, myacr.azurecr.io) | `""` (requerido)  |
+| `imageTag`  | Tag de la imagen Docker                                | `""` (requerido)  |
+| `port`      | Puerto del contenedor                                  | `3000`            |
 
 ### Parámetros del HPA
 
@@ -73,6 +75,7 @@ helm install cu-ms-payments ./helm-microservice-chart \
 ```yaml
 name: cu-ms-payments
 namespace: edisonpaul4-dev
+registry: edisonpaul4
 imageTag: v1.0.0
 port: 3000
 
@@ -106,6 +109,7 @@ helm install cu-ms-payments ./helm-microservice-chart -f values.yaml
 helm install cu-ms-payments ./helm-microservice-chart \
   --set name=cu-ms-payments \
   --set namespace=edisonpaul4-dev \
+  --set registry=edisonpaul4 \
   --set imageTag=v1.0.0 \
   --set port=8080 \
   --set configMap.LOG_LEVEL=info \
@@ -128,6 +132,7 @@ helm upgrade cu-ms-payments ./helm-microservice-chart \
 helm install cu-ms-orders ./helm-microservice-chart \
   --set name=cu-ms-orders \
   --set namespace=edisonpaul4-prod \
+  --set registry=edisonpaul4 \
   --set imageTag=v2.0.0 \
   --set configMap.LOG_LEVEL=warn \
   --set hpa.minReplicas=5 \
