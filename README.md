@@ -32,6 +32,7 @@ helm install cu-ms-payments ./helm-microservice-chart \
   --set name=cu-ms-payments \
   --set namespace=edisonpaul4-dev \
   --set registry=edisonpaul4 \
+  --set image=cu-ms-payments \
   --set imageTag=v1.0.0
 ```
 
@@ -44,6 +45,7 @@ helm install cu-ms-payments ./helm-microservice-chart \
 | `name`      | Nombre del microservicio                               | `""` (requerido)  |
 | `namespace` | Namespace de Kubernetes                                | `""` (requerido)  |
 | `registry`  | Registry de Docker (ej: edisonpaul4, myacr.azurecr.io) | `""` (requerido)  |
+| `image`     | Nombre de la imagen Docker                             | `""` (requerido)  |
 | `imageTag`  | Tag de la imagen Docker                                | `""` (requerido)  |
 | `port`      | Puerto del contenedor                                  | `3000`            |
 
@@ -76,6 +78,7 @@ helm install cu-ms-payments ./helm-microservice-chart \
 name: cu-ms-payments
 namespace: edisonpaul4-dev
 registry: edisonpaul4
+image: cu-ms-payments
 imageTag: v1.0.0
 port: 3000
 
@@ -110,6 +113,7 @@ helm install cu-ms-payments ./helm-microservice-chart \
   --set name=cu-ms-payments \
   --set namespace=edisonpaul4-dev \
   --set registry=edisonpaul4 \
+  --set image=cu-ms-payments \
   --set imageTag=v1.0.0 \
   --set port=8080 \
   --set configMap.LOG_LEVEL=info \
@@ -133,6 +137,7 @@ helm install cu-ms-orders ./helm-microservice-chart \
   --set name=cu-ms-orders \
   --set namespace=edisonpaul4-prod \
   --set registry=edisonpaul4 \
+  --set image=cu-ms-orders \
   --set imageTag=v2.0.0 \
   --set configMap.LOG_LEVEL=warn \
   --set hpa.minReplicas=5 \

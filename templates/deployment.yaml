@@ -17,8 +17,8 @@ spec:
         app: {{.Values.name}}
     spec:
       containers:
-        - name: {{.Values.name}}
-          image: "{{ .Values.registry }}/{{ .Values.name }}:{{ .Values.imageTag }}"
+        - name: {{ .Values.name }}
+          image: "{{ .Values.registry }}/{{ .Values.image }}:{{ .Values.imageTag }}"
           ports:
             - containerPort: {{.Values.port | default 3000}}
           resources:
