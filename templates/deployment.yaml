@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: { { .Values.name } }
-          image: edisonpaul4/{ { .Values.name } }:{{ imageTag }}
+          image: edisonpaul4/{ { .Values.name } }:{{ .Values.imageTag }}
           ports:
             - containerPort: 3000
           resources:
